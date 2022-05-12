@@ -23,9 +23,7 @@ variables:
   projectRoot: $(System.DefaultWorkingDirectory)
 
   # Python version: 3.7
-  pythonVersion: '3.7'
-  
-  containerImage: ubuntu:latest
+  pythonVersion: '3.8'
 
 stages:
 - stage: Build
@@ -36,7 +34,6 @@ stages:
       name: Default
       demands:
         - agent.name -equals LinuxPersonalAgent
-    container: ubuntu:latest
     steps:
     - task: UsePythonVersion@0
       inputs:
@@ -44,9 +41,9 @@ stages:
       displayName: 'Use Python $(pythonVersion)'
 
     - script: |
-        python -m venv antenv
+        python3 -m venv antenv
         source antenv/bin/activate
-        python -m pip install --upgrade pip
+        python3 -m pip install --upgrade pip
         pip install setup
         pip install -r requirements.txt
       workingDirectory: $(projectRoot)
@@ -75,7 +72,6 @@ stages:
       name: Default
       demands:
         - agent.name -equals LinuxPersonalAgent
-    container: ubuntu:latest
     environment: $(environmentName)
     strategy:
       runOnce:
