@@ -1,0 +1,19 @@
+#create app service
+az webapp up -n fabiogomez28-flaskpipelines -l eastus 
+
+#result
+{
+  "URL": "http://fabiogomez28-flaskpipelines.azurewebsites.net",
+  "appserviceplan": "fabiox.star_asp_4561",
+  "location": "eastus",
+  "name": "fabiogomez28-flaskpipelines",
+  "os": "Linux",
+  "resourcegroup": "fabiox.star_rg_6397",
+  "runtime_version": "python|3.7",
+  "runtime_version_detected": "-",
+  "sku": "PREMIUMV2",
+  "src_path": "C:\\Users\\Fabio\\PythonProjects\\python-sample-vscode-flask-tutorial"
+}
+
+#create config to startup file
+az webapp config set -g fabiox.star_rg_6397 -n fabiogomez28-flaskpipelines --startup-file startup.txt
