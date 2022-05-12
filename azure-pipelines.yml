@@ -34,7 +34,6 @@ stages:
       name: Default
       demands:
         - agent.name -equals LinuxPersonalAgent
-    container: ubuntu-latest
     steps:
     - task: UsePythonVersion@0
       inputs:
@@ -72,7 +71,6 @@ stages:
       name: Default
       demands:
         - agent.name -equals LinuxPersonalAgent
-    container: ubuntu-latest
     environment: $(environmentName)
     strategy:
       runOnce:
