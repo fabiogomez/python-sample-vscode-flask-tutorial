@@ -33,7 +33,7 @@ stages:
     pool: 
       name: Default
       demands:
-        - agent.name -equals Agentname(LinuxPersonalAgent)
+        - agent.name -equals LinuxPersonalAgent
     steps:
     - task: UsePythonVersion@0
       inputs:
@@ -71,7 +71,7 @@ stages:
     pool: 
       name: Default
       demands:
-        - agent.name -equals Agentname(LinuxPersonalAgent)
+        - agent.name -equals LinuxPersonalAgent
     environment: $(environmentName)
     strategy:
       runOnce:
