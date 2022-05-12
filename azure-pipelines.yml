@@ -36,7 +36,7 @@ stages:
       name: Default
       demands:
         - agent.name -equals LinuxPersonalAgent
-    container: '$(containerImage)'
+    container: $(containerImage)
     steps:
     - task: UsePythonVersion@0
       inputs:
@@ -75,7 +75,7 @@ stages:
       name: Default
       demands:
         - agent.name -equals LinuxPersonalAgent
-    container: '$(containerImage)'
+    container: $(containerImage)
     environment: $(environmentName)
     strategy:
       runOnce:
