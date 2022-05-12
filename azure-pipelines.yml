@@ -30,10 +30,11 @@ stages:
   displayName: Build stage
   jobs:
   - job: BuildJob
-    strategy:
-      maxParallel: 1
-    pool:
-      vmImage: $(vmImageName)
+    pool: 
+      name: Default
+      demands:
+        - agent.name -equals LinuxPersonalAgent
+    container: ubuntu-latest
     steps:
     - task: UsePythonVersion@0
       inputs:
@@ -67,8 +68,11 @@ stages:
   condition: succeeded()
   jobs:
   - deployment: DeploymentJob
-    pool:
-      vmImage: $(vmImageName)
+    pool: 
+      name: Default
+      demands:
+        - agent.name -equals LinuxPersonalAgent
+    container: ubuntu-latest
     environment: $(environmentName)
     strategy:
       runOnce:
