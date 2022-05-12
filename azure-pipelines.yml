@@ -24,6 +24,8 @@ variables:
 
   # Python version: 3.7
   pythonVersion: '3.7'
+  
+  containerImage: ubuntu:latest
 
 stages:
 - stage: Build
@@ -34,7 +36,7 @@ stages:
       name: Default
       demands:
         - agent.name -equals LinuxPersonalAgent
-    container: ubuntu-latest
+    container: '$(containerImage)'
     steps:
     - task: UsePythonVersion@0
       inputs:
@@ -73,7 +75,7 @@ stages:
       name: Default
       demands:
         - agent.name -equals LinuxPersonalAgent
-    container: ubuntu-latest
+    container: '$(containerImage)'
     environment: $(environmentName)
     strategy:
       runOnce:
