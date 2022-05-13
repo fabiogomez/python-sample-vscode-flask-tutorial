@@ -28,5 +28,5 @@ def get_data():
     return app.send_static_file("data.json")
 
 @app.route("/tedeseo")
-def get_data():
+def aja():
     return "AJA"
